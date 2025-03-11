@@ -12,8 +12,15 @@ class ClipFetcher:
         }
 
     def get_clips(self, game_id, clip_count):
-        params = {"game_id": game_id, "first": clip_count}
+        params = {"game_id": game_id,"started_at":"2025-03-08T12:34:56Z", "first": clip_count}
+
+        print(self.BASE_URL)
+        print(self.headers)
+        print(params)
+
         response = requests.get(self.BASE_URL, headers=self.headers, params=params)
+
+        print(response)
         
         if response.status_code != 200:
             log_error(f"Error fetching clips: {response.text}")
