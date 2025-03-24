@@ -14,7 +14,6 @@ class ClipFetcher:
     def get_clips(self, game_id, clip_count):
         twenty_four_hours_ago = (datetime.now() - timedelta(hours=24)).isoformat() + "Z"
         now = datetime.now().isoformat() + "Z"
-        currentDate = datetime.now().isoformat() + "Z"
         two_days_ago_iso = (datetime.now() - timedelta(days=2)).isoformat() + "Z"
 
         print(two_days_ago_iso)
