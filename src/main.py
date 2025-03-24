@@ -10,7 +10,9 @@ class AppController:
         self.video_processor = VideoProcessor()
 
     def run(self):
-        game_id, clip_count = UserInputHandler.get_user_input()
+        game_id = 32399
+        print("Counter-Strike 2 Has been selected")
+        clip_count = UserInputHandler.get_user_input()
         print("Fetching clips...")
         clips = self.clip_fetcher.get_clips(game_id, clip_count)
 
