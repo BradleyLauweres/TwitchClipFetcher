@@ -12,7 +12,6 @@ class VideoProcessor:
         filtered_videos = self._filter_blocked_videos(video_data)
         local_files = self._download_videos(filtered_videos)
         if local_files:
-            print(local_files)
             wantsToMerge = input("Do you want to merge the clips? (y/n): ")
             if wantsToMerge == "y":
                 local_files_edited = self.get_clip_files()
@@ -37,7 +36,7 @@ class VideoProcessor:
             url = video["url"]
             output_name = f"clips/clip_{idx}.mp4"
             log_info(f"Downloading: {url}")
-            os.system(f"yt-dlp {url} -o {output_name}")  # Downloads clip
+            os.system(f"yt-dlp {url} -o {output_name}")
             if os.path.exists(output_name):
                 local_files.append(output_name)
                 print("Saving videos in:", os.path.abspath(output_name))

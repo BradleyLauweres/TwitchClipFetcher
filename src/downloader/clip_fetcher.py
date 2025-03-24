@@ -12,12 +12,15 @@ class ClipFetcher:
         }
 
     def get_clips(self, game_id, clip_count):
-        twenty_four_hours_ago = (datetime.now() - timedelta(hours=24)).isoformat() + "Z"
         now = datetime.now().isoformat() + "Z"
-        two_days_ago_iso = (datetime.now() - timedelta(days=2)).isoformat() + "Z"
+        wantToChangeBaseTime = input("Do you want to change the base time? (y/n): ")
 
-        print(two_days_ago_iso)
-        
+        if wantToChangeBaseTime == "y":
+            pickedDate = int(input("Please enter the hours the started_at value should be"))
+            twenty_four_hours_ago = (datetime.now() - timedelta(hours=pickedDate)).isoformat() + "Z"
+        else:
+            twenty_four_hours_ago = (datetime.now() - timedelta(hours=24)).isoformat() + "Z"
+
         params = {"game_id": game_id, "started_at": twenty_four_hours_ago,"ended_at":now, "first": clip_count}
         response = requests.get(self.BASE_URL, headers=self.headers, params=params)
         
