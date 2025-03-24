@@ -11,7 +11,7 @@ class AppController:
 
     def run(self):
         game_id = 32399
-        print("Counter-Strike 2 Has been selected")
+        print("HI TOMM IT UPDATED")
         clip_count = UserInputHandler.get_user_input()
         print("Fetching clips...")
         clips = self.clip_fetcher.get_clips(game_id, clip_count)
