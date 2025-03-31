@@ -24,7 +24,8 @@ class ClipFetcher:
         wantToChangeBaseTime = input("Do you want to change the base time? (y/n): ")
 
         if wantToChangeBaseTime == "y":
-            pickedDate = int(input("Please enter the hours the started_at value should be"))
+            days = int(input("How many days ago do you want to start from?"))
+            pickedDate = days * 24
             twenty_four_hours_ago = (datetime.now() - timedelta(hours=pickedDate)).isoformat() + "Z"
         else:
             twenty_four_hours_ago = (datetime.now() - timedelta(hours=24)).isoformat() + "Z"
