@@ -8,6 +8,15 @@ class VideoProcessor:
     def __init__(self, output_file="output/final_video.mp4"):
         self.output_file = output_file
 
+    def delete_clips(self):
+        if not os.path.exists("clips"):
+            return
+        
+        for file in os.listdir("clips"):
+            file_path = os.path.join("clips", file)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+
     def merge_videos(self, video_data):
         filtered_videos = self._filter_blocked_videos(video_data)
         local_files = self._download_videos(filtered_videos)

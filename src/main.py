@@ -11,7 +11,8 @@ class AppController:
 
     def run(self):
         game_id = 32399
-        print("HI TOMM IS THIS WORKING ??")
+        print("HI TOM IT NOW DELETES THE OLD CLIPS")
+        self.video_processor.delete_clips()
         clip_count = UserInputHandler.get_user_input()
         print("Fetching clips...")
         clips = self.clip_fetcher.get_clips(game_id, clip_count)
