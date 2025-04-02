@@ -11,7 +11,7 @@ class AppController:
 
     def run(self):
         game_id = 32399
-        print("HI TOMM IT UPDATED")
+        print("HI TOMM IS THIS WORKING ??")
         clip_count = UserInputHandler.get_user_input()
         print("Fetching clips...")
         clips = self.clip_fetcher.get_clips(game_id, clip_count)
